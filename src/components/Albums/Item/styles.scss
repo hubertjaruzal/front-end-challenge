@@ -1,0 +1,28 @@
+li {
+  display: flex;
+  padding: 15px;
+  background: #373a4b;
+  border-radius: 10px;
+  margin: 5px 0;
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    border: 3px solid #5d6176;
+  }
+
+  .item-text {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+
+    span {
+      color: white;
+      &:first-child {
+        font-weight: 600;
+        margin: 0 0 5px 0;
+        color: #8acbff;
+      }
+    }
+  }
+}

@@ -1,3 +1,5 @@
+import { processAlbums } from '../../../utils';
+
 const initialState = {
   list: []
 };
@@ -7,7 +9,7 @@ const albums = (state = initialState, action) => {
   case 'SET_ALBUMS':
     return {
       ...state,
-      list: action.data,
+      list: processAlbums(action.data),
     };
   default:
     return state;
