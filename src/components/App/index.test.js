@@ -8,9 +8,9 @@ import App from './index.js';
 
 const mockStore = configureMockStore([thunk]);
 const store = mockStore({
-    albums: {
-        list: []
-    },
+  albums: {
+    list: []
+  },
 });
 
 const wrapper = shallow(<App store={store} />).dive();

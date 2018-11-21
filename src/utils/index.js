@@ -14,4 +14,4 @@ export const processAlbums = (data) => (
     artist: _get(item, '["im:artist"].label'),
     image: getItemImage(item['im:image'])
   })).filter(album => album.id && album.name && album.artist)
-)
+);
