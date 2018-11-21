@@ -12,6 +12,12 @@ export const processAlbums = (data) => (
     id: _get(item, 'id.attributes["im:id"]'),
     name: _get(item, '["im:name"].label'),
     artist: _get(item, '["im:artist"].label'),
-    image: getItemImage(item['im:image'])
+    image: getItemImage(item['im:image']),
+    details: {
+      price: _get(item, '["im:price"].label'),
+      category: _get(item, 'category.attributes.label'),
+      releaseDate: _get(item, '["im:releaseDate"].attributes.label'),
+      link: _get(item, 'link.attributes.href'),
+    }
   })).filter(album => album.id && album.name && album.artist)
 );

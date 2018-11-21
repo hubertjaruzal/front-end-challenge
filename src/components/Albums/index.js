@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import _isEqual from 'lodash/isEqual';
-
-import { getAlbums } from '../../redux/actions/Albums';
+import { Link } from 'react-router-dom';
 
 import Item from './Item';
 
@@ -23,7 +21,7 @@ class Albums extends Component {
   }
 
   componentDidMount() {
-    this.props.getAlbums();
+    this.setState({ albums: this.props.albums.list });
   }
 
   componentDidUpdate(prevProps) {
@@ -54,12 +52,13 @@ class Albums extends Component {
         { this.state.albums.length ?
           <ul>
             { this.state.albums.map(item => (
-                <Item
-                  key={item.id}
-                  name={item.name}
-                  artist={item.artist}
-                  image={item.image}
-                />
+                <Link key={item.id} to={item.id}>
+                  <Item
+                    name={item.name}
+                    artist={item.artist}
+                    image={item.image}
+                  />
+                </Link>
               ))
             }
           </ul> :
@@ -79,10 +78,4 @@ const mapStateToProps = state => ({
   albums: state.albums,
 });
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    getAlbums,
-  }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Albums);
+export default connect(mapStateToProps, null)(Albums);

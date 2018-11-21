@@ -1,0 +1,83 @@
+.album {
+  display: flex;
+  flex-direction: column;
+  background: #373a4b;
+  padding: 20px;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  img {
+    width: 170px;
+    min-width: 170px;
+    height: 170px;
+    min-height: 170px;
+    border-radius: 10px;
+    border: 3px solid #5d6176;
+  }
+
+  .main-info {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    margin: 20px;
+    border-bottom: 2px solid #5d6176;
+    padding: 0 0 20px 0;
+    text-align: center;
+
+    span {
+      color: white;
+      font-size: 18px;
+      &:first-child {
+        font-weight: 600;
+        font-size: 22px;
+        margin: 0 0 5px 0;
+        color: #8acbff;
+      }
+    }
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+
+    .details-wrapper {
+      margin: 5px 0;
+      font-size: 14px;
+      span {
+        color: white;
+        &:first-of-type {
+          color: #959ab0;
+          font-weight: 600;
+        }
+      }
+    }
+
+    a {
+      background: #0bd8c1;
+      color: white;
+      font-weight: 600;
+      padding: 10px 20px;
+      width: 100px;
+      text-align: center;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 14px;
+      align-self: center;
+      margin: 20px 0 0 0;
+    }
+  }
+}
+
+.link-back {
+  display: flex;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 14px;
+  background: #5d6176;
+  padding: 7px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

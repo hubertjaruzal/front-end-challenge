@@ -4,9 +4,16 @@ li {
   background: #373a4b;
   border-radius: 10px;
   margin: 5px 0;
+  transition: all .2s ease-in;
+  &:hover {
+    background: lighten(#373a4b, 5%);
+  }  
+
   img {
     width: 80px;
+    min-width: 80px;
     height: 80px;
+    min-height: 80px;
     border-radius: 10px;
     border: 3px solid #5d6176;
   }
