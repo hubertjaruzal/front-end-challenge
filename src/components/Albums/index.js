@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import _isEqual from 'lodash/isEqual';
 
 import { getAlbums } from '../../redux/actions/Albums';
 
@@ -11,17 +12,48 @@ import './styles.scss';
 
 
 class Albums extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      albums: []
+    }
+
+    this.handleSearch = this.handleSearch.bind(this);
+  }
 
   componentDidMount() {
     this.props.getAlbums();
   }
 
+  componentDidUpdate(prevProps) {
+    if (!_isEqual(this.props.albums.list, prevProps.albums.list)) {
+      this.setState({ albums: this.props.albums.list })
+    }
+  }
+
+  handleSearch(e) {
+    this.setState({
+      albums: this.props.albums.list.filter(item => (
+        item.name.toLowerCase().includes(e.target.value.toLowerCase()) || 
+        item.artist.toLowerCase().includes(e.target.value.toLowerCase())
+      ))
+    })
+  }
+
   render() {
     return (
       <div className='albums'>
+        <div className='search-container'>
+          <input
+            className='search-input'
+            onChange={this.handleSearch}
+            placeholder='Search...'
+          />
+        </div>
         <ul>
           { 
-            this.props.albums.list.map(item => (
+            this.state.albums.map(item => (
               <Item
                 key={item.id}
                 name={item.name}
