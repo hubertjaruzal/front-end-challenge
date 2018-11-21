@@ -45,7 +45,7 @@ class Album extends Component {
     return (
       <Fragment>
         {
-          this.state.id &&
+          this.state.id ?
           <div className='album'>
             <img src={this.state.image} alt={this.state.name} />
             <div className='main-info'>
@@ -67,6 +67,9 @@ class Album extends Component {
               </div>
               <a href={this.state.details.link} target='_blank' rel='noopener noreferrer'>Link</a>
             </div>
+          </div> :
+          <div className='album'>
+            <span className='zero-state-text'>Album not found...</span>
           </div>
         }
         <Link className='link-back' to='/'>back to albums</Link>
