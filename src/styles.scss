@@ -9,6 +9,10 @@ body {
   background: #212430;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -20,6 +24,7 @@ input {
 
 button {
   cursor: pointer;
+  outline: none;
 }
 
 .zero-state-text {
