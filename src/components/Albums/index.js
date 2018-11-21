@@ -27,7 +27,7 @@ class Albums extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (!_isEqual(this.props.albums.list, prevProps.albums.list)) {
+    if (!_isEqual(this.props.albums.list, prevProps.albums.list) && Array.isArray(this.props.albums.list)) {
       this.setState({ albums: this.props.albums.list })
     }
   }
@@ -51,18 +51,20 @@ class Albums extends Component {
             placeholder='Search...'
           />
         </div>
-        <ul>
-          { 
-            this.state.albums.map(item => (
-              <Item
-                key={item.id}
-                name={item.name}
-                artist={item.artist}
-                image={item.image}
-              />
-            ))
-          }
-        </ul>
+        { this.state.albums.length ?
+          <ul>
+            { this.state.albums.map(item => (
+                <Item
+                  key={item.id}
+                  name={item.name}
+                  artist={item.artist}
+                  image={item.image}
+                />
+              ))
+            }
+          </ul> :
+          <span className='zero-state-text'>No items...</span>
+        }
       </div>
     );
   }
