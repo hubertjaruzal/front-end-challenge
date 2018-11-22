@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import HeartIcon from '../../Common/HeartIcon';
+
 import './styles.scss';
 
 
@@ -10,6 +12,10 @@ const Item = (props) => (
     <div className="item-text">
       <span>{props.name}</span>
       <span>{props.artist}</span>
+      {
+        props.isLiked &&
+        <span className="like">You <HeartIcon/> it!</span>
+      }
     </div>
   </li>
 )
@@ -19,6 +25,7 @@ Item.propTypes = {
   name: PropTypes.string,
   artist: PropTypes.string,
   image: PropTypes.string,
+  isLiked: PropTypes.bool,
 };
 
 export default Item;

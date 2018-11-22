@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 
 import Item from './Item';
 
+import { isAlbumLiked } from '../../utils';
+
 import './styles.scss';
 
 
@@ -57,6 +59,7 @@ class Albums extends Component {
                     name={item.name}
                     artist={item.artist}
                     image={item.image}
+                    isLiked={isAlbumLiked(this.props.likes.list, item.id)}
                   />
                 </Link>
               ))
@@ -72,10 +75,12 @@ class Albums extends Component {
 Albums.propTypes = {
   getAlbums: PropTypes.func,
   albums: PropTypes.object,
+  likes: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
   albums: state.albums,
+  likes: state.likes,
 });
 
 export default connect(mapStateToProps, null)(Albums);

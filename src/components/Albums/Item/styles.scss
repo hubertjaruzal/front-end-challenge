@@ -31,5 +31,18 @@ li {
         color: #8acbff;
       }
     }
+
+    .like {
+      display: flex;
+      margin: 10px 0;
+      font-size: 14px;
+      color: #9da0b0;
+      svg {
+        width: 15px;
+        height: 15px;
+        margin: 2px 5px;
+        fill: #E91E63;
+      }
+    }
   }
 }

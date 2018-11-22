@@ -13,6 +13,9 @@ const store = mockStore({
   albums: {
     list: mockedProcessedAlbums
   },
+  likes: {
+    list: []
+  }
 });
 
 const wrapper = shallow(<Albums store={store} />).dive();

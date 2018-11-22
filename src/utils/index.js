@@ -21,3 +21,7 @@ export const processAlbums = (data) => (
     }
   })).filter(album => album.id && album.name && album.artist)
 );
+
+export const isAlbumLiked = (likes, albumID) => {
+  return !!likes.find(id => id === albumID);
+}

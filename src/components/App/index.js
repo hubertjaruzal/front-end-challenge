@@ -12,6 +12,7 @@ import Album from '../Album';
 
 import './styles.scss';
 
+
 class App extends Component {
   componentDidMount() {
     this.props.getAlbums();

@@ -5,7 +5,10 @@ import { connect } from 'react-redux';
 import _isEqual from 'lodash/isEqual';
 import { Link } from 'react-router-dom';
 
+import HeartIcon from '../Common/HeartIcon';
+
 import { toggleLike } from '../../redux/actions/Likes';
+import { isAlbumLiked } from '../../utils';
 
 import './styles.scss';
 
@@ -29,7 +32,6 @@ class Album extends Component {
 
     this.getAlbum = this.getAlbum.bind(this);
     this.likeAlbum = this.likeAlbum.bind(this);
-    this.isActive = this.isActive.bind(this);
   }
 
   componentDidMount() {
@@ -48,10 +50,6 @@ class Album extends Component {
 
   likeAlbum() {
     this.props.toggleLike(this.props.match.params.id);
-  }
-
-  isActive() {
-    return this.props.likes.list.find(id => id === this.props.match.params.id)
   }
 
   render() {
@@ -81,12 +79,9 @@ class Album extends Component {
               <a href={this.state.details.link} target='_blank' rel='noopener noreferrer'>Link</a>
               <button 
                 onClick={this.likeAlbum}
-                className={`like ${ this.isActive() && 'active'}`}
+                className={`like ${ isAlbumLiked(this.props.likes.list, this.props.match.params.id) && 'active'}`}
               >
-                <svg viewBox="0 0 32 29.6">
-                  <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
-                  c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
-                </svg> 
+                <HeartIcon />
               </button>
             </div>
           </div> :
