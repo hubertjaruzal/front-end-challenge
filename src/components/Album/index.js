@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import _isEqual from 'lodash/isEqual';
+import _get from 'lodash/get';
 import { Link } from 'react-router-dom';
 
 import HeartIcon from '../Common/HeartIcon';
@@ -70,13 +71,13 @@ class Album extends Component {
               </div>
               <div className='details-wrapper'>
                 <span>Price: </span>
-                <span>{this.state.details.price}</span>
+                <span>{_get(this.state.details, 'price')}</span>
               </div>
               <div className='details-wrapper'>
                 <span>Release Date: </span>
-                <span>{this.state.details.releaseDate}</span>
+                <span>{_get(this.state.details, 'releaseDate')}</span>
               </div>
-              <a href={this.state.details.link} target='_blank' rel='noopener noreferrer'>Link</a>
+              <a href={_get(this.state.details, 'link')} target='_blank' rel='noopener noreferrer'>Link</a>
               <button 
                 onClick={this.likeAlbum}
                 className={`like ${ isAlbumLiked(this.props.likes.list, this.props.match.params.id) && 'active'}`}
