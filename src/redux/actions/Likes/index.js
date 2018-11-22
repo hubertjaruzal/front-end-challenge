@@ -1,3 +1,5 @@
+import _get from 'lodash/get';
+
 const setLikes = (data) => ({
   type: 'SET_LIKES',
   data
@@ -5,7 +7,7 @@ const setLikes = (data) => ({
 
 const toggleLike = (id) => (dispatch) => {
   let data = [id];
-  if (window.localStorage.itunesAlbumsLikes) {
+  if (_get(window, 'localStorage.itunesAlbumsLikes')) {
     let itunesAlbumsLikes = JSON.parse(window.localStorage.itunesAlbumsLikes);
 
     if (itunesAlbumsLikes.find(identifier => identifier === id)) {
@@ -19,7 +21,7 @@ const toggleLike = (id) => (dispatch) => {
 }
 
 const getLikes = () => (dispatch) => {
-  if (window.localStorage.itunesAlbumsLikes) {
+  if (_get(window, 'localStorage.itunesAlbumsLikes')) {
     dispatch(setLikes(JSON.parse(window.localStorage.itunesAlbumsLikes)));
   }
 }
