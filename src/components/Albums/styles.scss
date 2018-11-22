@@ -1,3 +1,5 @@
+@import 'src/variables.scss';
+
 .albums {
   display: flex;
   flex-direction: column;
@@ -8,7 +10,7 @@
     width: 100%;
     max-width: 600px;
     .search-input {
-      border: 2px solid #5d6176;
+      border: 2px solid $grey;
       padding: 7px 12px;
       font-size: 14px;
       border-radius: 5px;

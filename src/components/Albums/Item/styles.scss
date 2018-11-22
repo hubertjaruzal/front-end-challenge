@@ -1,13 +1,15 @@
+@import 'src/variables.scss';
+
 li {
   display: flex;
   padding: 15px;
-  background: #373a4b;
+  background: $dark-main;
   border-radius: 10px;
   margin: 5px 0;
   transition: all .2s ease-in;
   &:hover {
-    background: lighten(#373a4b, 5%);
-  }  
+    background: lighten($dark-main, 5%);
+  }
 
   img {
     width: 80px;
@@ -15,7 +17,7 @@ li {
     height: 80px;
     min-height: 80px;
     border-radius: 10px;
-    border: 3px solid #5d6176;
+    border: 3px solid $grey;
   }
 
   .item-text {
@@ -28,7 +30,7 @@ li {
       &:first-child {
         font-weight: 600;
         margin: 0 0 5px 0;
-        color: #8acbff;
+        color: $blue;
       }
     }
 
@@ -41,7 +43,7 @@ li {
         width: 15px;
         height: 15px;
         margin: 2px 5px;
-        fill: #E91E63;
+        fill: $pink;
       }
     }
   }
