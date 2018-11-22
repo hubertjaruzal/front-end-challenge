@@ -1,15 +1,18 @@
-import _uniq from 'lodash/uniq';
-
 const setLikes = (data) => ({
   type: 'SET_LIKES',
   data
 });
 
-const like = (id) => (dispatch) => {
+const toggleLike = (id) => (dispatch) => {
   let data = [id];
   if (window.localStorage.itunesAlbumsLikes) {
     let itunesAlbumsLikes = JSON.parse(window.localStorage.itunesAlbumsLikes);
-    data = _uniq(itunesAlbumsLikes.concat(id));
+
+    if (itunesAlbumsLikes.find(identifier => identifier === id)) {
+      data = itunesAlbumsLikes.filter(identifier => identifier !== id);
+    } else {
+      data = itunesAlbumsLikes.concat(id);
+    }
   }
   window.localStorage.setItem('itunesAlbumsLikes', JSON.stringify(data));
   dispatch(setLikes(data));
@@ -22,6 +25,6 @@ const getLikes = () => (dispatch) => {
 }
 
 export {
-  like,
+  toggleLike,
   getLikes
 };

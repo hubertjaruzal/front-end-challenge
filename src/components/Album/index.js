@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import _isEqual from 'lodash/isEqual';
 import { Link } from 'react-router-dom';
 
-import { like } from '../../redux/actions/Likes';
+import { toggleLike } from '../../redux/actions/Likes';
 
 import './styles.scss';
 
@@ -47,7 +47,7 @@ class Album extends Component {
   }
 
   likeAlbum() {
-    this.props.like(this.props.match.params.id);
+    this.props.toggleLike(this.props.match.params.id);
   }
 
   isActive() {
@@ -103,6 +103,7 @@ class Album extends Component {
 Album.propTypes = {
   albums: PropTypes.object,
   likes: PropTypes.object,
+  toggleLike: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -112,7 +113,7 @@ const mapStateToProps = state => ({
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    like,
+    toggleLike,
   }, dispatch);
 }
 
