@@ -1,65 +1,22 @@
+# Setapp tech task
+
 [Demo](https://itunes-top-albums.herokuapp.com/) - Deployed on Heroku
-====================
 
-Front End Challenge
-====================
 
-This is a coding challenge to assess your qualifications as a potential front-end developer. This is by no means a test. We just want to get a sense of how you write code and solve problems.
-
-You can choose your own path that reflects your technical skills along the way. Spend as little or as much time as you would like to complete your chosen path. 
-
-### The Challenge
+### Description
 -------
-Imagine, one of our clients is branching into the music business and need a new a website. This website needs to display the top 100 songs based on the iTunes API.   
+Tools and libraries:
+- React for building UI.
+- Redux with Redux Thunk for state management.
+- React Router v4.
+- Jest + Enzyme for testing.
+- Lodash for utils functions like (_.get or _.isEqual).
+- Installed node-sass and used SCSS.
 
-#### Base Requirements For All Levels
--------
-- Show top 100 albums based on the json feed here:  https://itunes.apple.com/us/rss/topalbums/limit=100/json
-- A clean modern look
-- Clean, readable, maintainable codebase
-- Source code on Github
-- Cross browser support (or graceful degradation) in newest Chrome, Safari, Firefox and Edge (if you don't have either safari or edge that's fine)
-- Responsive design and implementation
-- A good user experience
-
-
-#### Levels of Awesome
-
-Please choose one of the following routes: 
-
--------
-### Novice
-
-**TASKS**
-* All of the base requirements
-+ Create and implement (HTML, CSS and JS) a basic design 
-+ Use a CSS Framework (Bootstrap, Bulma, Foundation, uikit, etc.…)
-
-
--------
-### Intermediate
-
-**TASKS**
-* All of the base, and novice requirements
-+ Use a JavaScript framework (Angular, React, Vue, etc...)
-+ Use LESS or SASS for custom CSS
-+ Make use of CSS animations
-
-
--------
-### Expert
-
-**TASKS**
-* All of the base, novice, and intermediate requirements
-+ Allow the top 100 to be searchable 
-+ Allow the user to see more information about a selected Album
-+ Host the website on the service of your choice (We enjoy cloud hosting like Azure or AWS, but we would also settle for [Github Pages](https://pages.github.com/))
-
-
--------
-### Bonus Round
-
-**TASKS**
-+ Use a language that compiles to JavaScript (CoffeeScript, TypeScript, etc...)
-+ Surprise us! Add a feature that you think would work well here 
-+ Show us your work through your commit history (don't squash)!
+General:
+- Styles and design created from scratch - That's why I didn't use CSS Frameworks.
+- Search works for Album title or Artist name.
+- Added additional feature called 'likes'. User can like album in album details view. Likes are stored in localStorage and passed directly to the Redux state when app runs.
+- Application looks good on small devices. I used flexbox and didn't used media queries, because it already looks nice on big, medium and small screens.
+- Deployed application to Heroku (cloud platform).
+- Covered main methods and utils functions by tests.
